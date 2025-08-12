@@ -1,4 +1,6 @@
-import { TextInput, View, Text, StyleSheet } from "react-native"
+
+import { StyleSheet, Text, TextInput, View } from "react-native"
+
 
 export const Input = () => {
     return (
@@ -13,13 +15,13 @@ export const Input = () => {
     )
 }
 const styles = StyleSheet.create({
-    campoInput:{
-        width:'70%'
+    campoInput: {
+        width: '70%'
     },
-    input:{
+    input: {
         borderBottomWidth: 1,
         borderBottomColor: '#939393',
-        color:'#939393',
+        color: '#939393',
         padding: 5,
         outlineStyle: 'none'
 
