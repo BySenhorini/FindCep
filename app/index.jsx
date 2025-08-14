@@ -19,6 +19,8 @@ export default function Index() {
         const resposta = await axios.get(`https://viacep.com.br/ws/${cep}/json/`)
 
         setJsonCep(resposta.data);
+      } else {
+        alert("O cep está incorreto. Digite com 8 números.")
       }
 
     } catch (error) {
@@ -42,15 +44,20 @@ export default function Index() {
 
           {/* Input. */}
           <Input
-          valorCep={cep}
-          onChangeValorCep={e => setCep(e)}></Input>
+            valorCep={cep}
+            onChangeValorCep={e => setCep(e)}></Input>
 
           {/* Botão. */}
 
           <Botao tituloBotao='Consultar' onPress={consultarCep} />
 
           {/* Card de Informações. */}
-          <Card />
+          <Card
+            cep={jsonCep.cep}
+            logradouro={jsonCep.logradouro}
+            bairro={jsonCep.bairro}
+            estado={jsonCep.estado}
+          />
         </View>
       </ScrollView>
     </>
@@ -88,9 +95,10 @@ const styles = StyleSheet.create({
   },
   titulo: {
     fontSize: 25,
-
-
+    fontFamily: "Poppins-Bold",
+    color:'#000000'
   }
+
 
 
 })

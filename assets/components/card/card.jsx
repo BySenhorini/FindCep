@@ -1,48 +1,24 @@
 import { View, StyleSheet, Text, ScrollView } from "react-native"
 
-export const Card = () => {
+export const Card = ({ cep, logradouro, bairro, estado}) => {
     return (
         < ScrollView style={styles.card} showsHorizontalScrollIndicator={false}>
             <View style>
                 <View>
                     <Text style={styles.tituloValor}>CEP:</Text>
-                    <Text style={styles.valor}>Dado 01</Text>
+                    <Text style={styles.valor}>{cep}</Text>
                 </View>
                 <View>
                     <Text style={styles.tituloValor}>Logradouro:</Text>
-                    <Text style={styles.valor}>Dado 02</Text>
+                    <Text style={styles.valor}>{logradouro}</Text>
                 </View>
                 <View>
                     <Text style={styles.tituloValor}>Bairro:</Text>
-                    <Text style={styles.valor}>Dado 03</Text>
+                    <Text style={styles.valor}>{bairro}</Text>
                 </View>
                 <View>
                     <Text style={styles.tituloValor}>Estado:</Text>
-                    <Text style={styles.valor}>Dado 04</Text>
-                </View>
-                <View>
-                    <Text style={styles.tituloValor}>Setor:</Text>
-                    <Text style={styles.valor}>Dado 05</Text>
-                </View>
-                <View>
-                    <Text style={styles.tituloValor}>Lote:</Text>
-                    <Text style={styles.valor}>Dado 06</Text>
-                </View>
-                <View>
-                    <Text style={styles.tituloValor}>Tipo:</Text>
-                    <Text style={styles.valor}>Dado 07</Text>
-                </View>
-                <View>
-                    <Text style={styles.tituloValor}>Endereço:</Text>
-                    <Text style={styles.valor}>Dado 08</Text>
-                </View>
-                <View>
-                    <Text style={styles.tituloValor}>Rua:</Text>
-                    <Text style={styles.valor}>Dado 09</Text>
-                </View>
-                <View>
-                    <Text style={styles.tituloValor}>Avenida:</Text>
-                    <Text style={styles.valor}>Dado 10</Text>
+                    <Text style={styles.valor}>{estado}</Text>
                 </View>
             </View>
         </ScrollView>
@@ -50,7 +26,7 @@ export const Card = () => {
 }
 const styles = StyleSheet.create({
     card: {
-  width: '70%',
+        width: '70%',
         minHeight: '60%',
         padding: 20,
         backgroundColor: 'white',
