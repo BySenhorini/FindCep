@@ -50,16 +50,12 @@ export const Card = () => {
 }
 const styles = StyleSheet.create({
     card: {
-        width: '70%',
+  width: '70%',
         minHeight: '60%',
         padding: 20,
-        shadowColor: 'rgba(14, 30, 37, 0.32)',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.32,
-        shadowRadius: 8,
-        elevation: 6,
+        backgroundColor: 'white',
+        boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
         borderRadius: 7,
-        gap: 20
     },
     tituloValor: {
         fontWeight: 600

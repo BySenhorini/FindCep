@@ -2,9 +2,29 @@ import { Image, ImageBackground, ScrollView, StyleSheet, Text, View } from "reac
 import { Input } from '../assets/components/input/Input';
 import { Botao } from '../assets/components/botao/Botao';
 import { Card } from "../assets/components/card/card";
+import { useState } from "react";
+import axios from 'axios';
 
 
 export default function Index() {
+  const [cep, setCep] = useState("");
+  const [jsonCep, setJsonCep] = useState({});
+
+  async function consultarCep() {
+
+    try {
+
+      if (cep !== "" && cep.length === 8) {
+
+        const resposta = await axios.get(`https://viacep.com.br/ws/${cep}/json/`)
+
+        setJsonCep(resposta.data);
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <>
       {/* Logo e imagem de fundo. */}
@@ -21,11 +41,13 @@ export default function Index() {
 
 
           {/* Input. */}
-          <Input></Input>
+          <Input
+          valorCep={cep}
+          onChangeValorCep={e => setCep(e)}></Input>
 
           {/* Botão. */}
 
-          <Botao tituloBotao='Consultar' />
+          <Botao tituloBotao='Consultar' onPress={consultarCep} />
 
           {/* Card de Informações. */}
           <Card />
