@@ -1,6 +1,7 @@
-import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
+import { Image, ImageBackground, ScrollView, StyleSheet, Text, View } from "react-native";
 import { Input } from '../assets/components/input/Input';
 import { Botao } from '../assets/components/botao/Botao';
+import { Card } from "../assets/components/card/card";
 
 
 export default function Index() {
@@ -13,20 +14,23 @@ export default function Index() {
 
       </ImageBackground>
       {/* Campo de consulta. */}
-      <View style={styles.container}>
-        {/* Título. */}
-        <Text style={styles.titulo}>Consulte seu CEP</Text>
+      <ScrollView style={styles.containerScroll}>
+        <View style={styles.container}>
+          {/* Título. */}
+          <Text style={styles.titulo}>Consulte seu CEP</Text>
 
 
-        {/* Input. */}
-        <Input></Input>
+          {/* Input. */}
+          <Input></Input>
 
-        {/* Botão. */}
+          {/* Botão. */}
 
-        <Botao tituloBotao='Consultar'/>
+          <Botao tituloBotao='Consultar' />
 
-        {/* Card de Informações. */}
-      </View>
+          {/* Card de Informações. */}
+          <Card />
+        </View>
+      </ScrollView>
     </>
 
   );
@@ -47,11 +51,18 @@ const styles = StyleSheet.create({
     height: 120
   },
   container: {
+    gap: 40,
+    width: "100%",
+    minHeight: "100%",
+    alignItems: 'center'
+  },
+  containerScroll: {
     flex: 1.5,
-    alignItems: "center",
     paddingTop: 50,
     paddingBottom: 50,
-    gap: 40
+    height: '100%',
+    paddingBottom: 200
+
   },
   titulo: {
     fontSize: 25,
